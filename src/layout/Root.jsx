@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import "./root.css";
 const Root = () => {
   return (
-    <div className="font-fontNoto overflow-x-hidden">
+    <div className="font-fontNoto overflow-x-hidden bg-base-200">
       <Navbar></Navbar>
       <Outlet></Outlet>
       <footer className="footer items-center p-4 bg-neutral text-neutral-content">

@@ -12,17 +12,17 @@ const Navbar = () => {
       </li>
       <li className="hover:font-medium">
         <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/wedding">
-          WEDDING
+          ADD PRODUCT
         </NavLink>
       </li>
       <li className="hover:font-medium">
         <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/rooms">
-          ROOMS & SUITES
+          LOGIN
         </NavLink>
       </li>
       <li className="hover:font-medium">
         <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/gallery">
-          GALLERY
+          MY CART
         </NavLink>
       </li>
       <li className="hover:font-medium">
@@ -43,11 +43,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div
-      // data-aos="slide-down"
-      data-aos-duration="600"
-      className="z-50  duration-700 sticky top-0  max-lg:bg-black max-lg:text-white lg:bg-white lg:text-custom-color drop-shadow-lg "
-    >
+    <div className="z-50 font-fontSquare duration-700 sticky top-0  max-lg:bg-black max-lg:text-white lg:bg-white lg:text-custom-color drop-shadow-lg ">
       <div className="navbar lg:bg-base-100 container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -94,14 +90,14 @@ const Navbar = () => {
               </button>
             ) : (
               <div className="flex">
-                <NavLink to="register">
+                {/* <NavLink to="register">
                   <button className="py-2 text-custom-color px-3 lg:px-6  border border-[#bc9b6a] rounded-full hover:bg-[#bc9b6a] hover:text-white duration-700 flex items-center gap-2">
-                    Register
+                    REGISTER
                   </button>
-                </NavLink>
+                </NavLink> */}
                 <NavLink to="/login">
                   <button className="py-2 mx-4 text-custom-color px-3 lg:px-6  border border-[#bc9b6a] rounded-full hover:bg-[#bc9b6a] hover:text-white duration-700 flex items-center gap-2">
-                    Login
+                    LOGIN
                   </button>
                 </NavLink>
               </div>
@@ -109,7 +105,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-2 lg:gap-4">
             <div>
-              <h4 className="text-center">user displayName</h4>
+              <h4 className="text-center">USER DISPLAYNAME</h4>
             </div>
 
             {user ? (
@@ -140,6 +136,7 @@ const Navbar = () => {
                 />
               </div>
             )}
+            <input type="checkbox" className="toggle toggle-warning" />
           </div>
         </div>
       </div>
