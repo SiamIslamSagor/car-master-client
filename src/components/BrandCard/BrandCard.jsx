@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { setBrandInLocalStorage } from "../../localStorage";
 const BrandCard = ({ brand }) => {
   console.log(brand);

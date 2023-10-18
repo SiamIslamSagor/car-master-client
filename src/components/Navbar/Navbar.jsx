@@ -11,17 +11,17 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/wedding">
+        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/addProduct">
           ADD PRODUCT
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/rooms">
+        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/login">
           LOGIN
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/gallery">
+        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/myCart">
           MY CART
         </NavLink>
       </li>
