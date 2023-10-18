@@ -5,7 +5,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [clickedBrand, setClickedBrand] = useState("");
-  const [brandsInfo, setBrandsInfo] = useState("");
+  const [brandsInfo, setBrandsInfo] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000")
@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
       .then(data => setBrandsInfo(data));
   }, []);
 
+  console.log(brandsInfo);
   const data = {
     user: "moksed ali",
     brandsInfo,

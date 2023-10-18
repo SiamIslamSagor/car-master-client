@@ -10,8 +10,8 @@ const BrandContainer = () => {
         Your Favorite Brands Available Now!
       </h2>
       <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {brands.map(brand => (
-          <BrandCard key={brand.id} brand={brand}></BrandCard>
+        {brands.map((brand, idx) => (
+          <BrandCard key={idx} brand={brand}></BrandCard>
         ))}
       </div>
     </div>
