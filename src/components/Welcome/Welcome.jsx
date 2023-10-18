@@ -1,14 +1,15 @@
-import WelcomeBG from "../../assets/cover.jpg";
+import WelcomeBG from "../../assets/hondaCover.jpg";
 import WelcomeCar from "../../assets/w-h.png";
 const Welcome = () => {
   const bannerStyle = {
     backgroundImage: `url(${WelcomeBG})`,
     backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
   };
   return (
     <div style={bannerStyle}>
       <div className="container mt-20 mx-auto flex flex-col md:flex-row-reverse justify-around">
-        <div className=" py-10 px-2">
+        <div className=" py-10 space-y-3 px-2">
           <h3 className="text-4xl text-white  font-fontSquare">
             Welcome to Car Master.
           </h3>
@@ -23,6 +24,9 @@ const Welcome = () => {
             journey with us today and unlock the full potential of your
             automotive passion
           </p>
+          <button className="btn border-none bg-red-500 text-white">
+            Get Started
+          </button>
         </div>
         <div className=" flex items-center justify-center">
           <img className="" src={WelcomeCar} alt="" />

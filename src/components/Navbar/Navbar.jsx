@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
           <a className="">
             <img
-              className="max-lg:bg-gray-600 max-w-[100px] md:max-w-[150px]"
+              className="max-lg:bg-gray-300 rounded-xl max-w-[100px] md:max-w-[150px]"
               src={logo}
               alt=""
             />
