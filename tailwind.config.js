@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        fontSquare: "'Aldrich', sans-serif",
+        fontNoto: "'Noto Sans', sans-serif",
+      },
+    },
   },
   plugins: [require("daisyui")],
 };
