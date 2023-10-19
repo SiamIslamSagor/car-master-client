@@ -19,11 +19,17 @@ const BrandProduct = () => {
   console.log(products);
   return (
     <div>
-      <h4>Brand is : {brandInfo.brand_title}</h4>
+      <h4>Brand is : {brandInfo?.brand_title}</h4>
       <div className="container mx-auto space-y-6">
-        {products?.map(product => (
-          <ProductCard key={product._id} product={product}></ProductCard>
-        ))}
+        {products ? (
+          products?.map(product => (
+            <ProductCard key={product._id} product={product}></ProductCard>
+          ))
+        ) : (
+          <div className="h-screen flex items-center justify-center">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        )}
       </div>
     </div>
   );
