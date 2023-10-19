@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
     <div className="card card-side bg-base-100 shadow-xl max-lg:flex-col">
       <figure>
         <img
-          className="h-[350px] max-w-[580px] max-sm:h-[240px] max-lg:rounded-2xl"
+          className="h-[350px] max-w-[580px] max-sm:h-[240px] max-lg:rounded-2xl lg:w-[700px]"
           src={img}
           alt="Movie"
         />
