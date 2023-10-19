@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
+  console.log(product);
   const { _id, img, name, brand_name, rating, type, price } = product;
   return (
     <div className="card card-side bg-base-100 shadow-xl max-lg:flex-col">
@@ -19,7 +20,7 @@ const ProductCard = ({ product }) => {
         <span>Price: {price}</span>
         <div className="card-actions justify-end">
           <button className="btn btn-secondary">Update </button>
-          <Link to={`/productDetails/${_id}`}>
+          <Link to={`/${product?.product_brand}/${_id}`}>
             <button className="btn btn-primary">Details </button>
           </Link>
         </div>
