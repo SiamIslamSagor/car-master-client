@@ -6,37 +6,37 @@ const Navbar = () => {
   const links = (
     <>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/">
+        <NavLink className="hover:text-[#1d4ed8] max-2xl:px-2" to="/">
           HOME
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/addProduct">
+        <NavLink className="hover:text-[#1d4ed8] max-2xl:px-2" to="/addProduct">
           ADD PRODUCT
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/login">
+        <NavLink className="hover:text-[#1d4ed8] max-2xl:px-2" to="/login">
           LOGIN
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/myCart">
+        <NavLink className="hover:text-[#1d4ed8] max-2xl:px-2" to="/myCart">
           MY CART
         </NavLink>
       </li>
       <li className="hover:font-medium">
-        <NavLink className="hover:text-[#bc9b6a] max-2xl:px-2" to="/about">
+        <NavLink className="hover:text-[#1d4ed8] max-2xl:px-2" to="/about">
           ABOUT
         </NavLink>
       </li>
       <li className="hover:font-medium sm:hidden">
-        <NavLink className="hover:text-[#bc9b6a]" to="/login">
+        <NavLink className="hover:text-[#1d4ed8]" to="/login">
           Login
         </NavLink>
       </li>
       <li className="hover:font-medium sm:hidden">
-        <NavLink className="hover:text-[#bc9b6a]" to="/register">
+        <NavLink className="hover:text-[#1d4ed8]" to="/register">
           Register
         </NavLink>
       </li>
@@ -64,7 +64,6 @@ const Navbar = () => {
               </svg>
             </label>
             <ul
-              data-aos="slide-up"
               tabIndex={0}
               className="menu menu-sm bg-[#111827] dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52"
             >
@@ -85,18 +84,18 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="  max-md:hidden">
             {user ? (
-              <button className="py-2 mr-4 text-custom-color px-3 lg:px-6  border border-[#bc9b6a] rounded-full hover:bg-[#bc9b6a] hover:text-white duration-700 flex items-center gap-2">
+              <button className="py-2 mr-4 text-custom-color px-3 lg:px-6  border border-[#1d4ed8] rounded-full hover:bg-[#1d4ed8] hover:text-white duration-700 flex items-center gap-2">
                 Log Out
               </button>
             ) : (
               <div className="flex">
                 {/* <NavLink to="register">
-                  <button className="py-2 text-custom-color px-3 lg:px-6  border border-[#bc9b6a] rounded-full hover:bg-[#bc9b6a] hover:text-white duration-700 flex items-center gap-2">
+                  <button className="py-2 text-custom-color px-3 lg:px-6  border border-[#1d4ed8] rounded-full hover:bg-[#1d4ed8] hover:text-white duration-700 flex items-center gap-2">
                     REGISTER
                   </button>
                 </NavLink> */}
                 <NavLink to="/login">
-                  <button className="py-2 mx-4 text-custom-color px-3 lg:px-6  border border-[#bc9b6a] rounded-full hover:bg-[#bc9b6a] hover:text-white duration-700 flex items-center gap-2">
+                  <button className="py-2 mx-4 text-custom-color px-3 lg:px-6  border border-[#1d4ed8] rounded-full hover:bg-[#1d4ed8] hover:text-white duration-700 flex items-center gap-2">
                     LOGIN
                   </button>
                 </NavLink>
@@ -120,10 +119,10 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#111827] rounded-box w-52 md:hidden"
                 >
                   <li>
-                    <a className="hover:text-[#bc9b6a]">Settings</a>
+                    <a className="hover:text-[#1d4ed8]">Settings</a>
                   </li>
                   <li>
-                    <a className="hover:text-[#bc9b6a]">Logout</a>
+                    <a className="hover:text-[#1d4ed8]">Logout</a>
                   </li>
                 </ul>
               </div>
