@@ -12,9 +12,7 @@ const BrandProduct = () => {
   );
   console.log(brandInfo);
   useEffect(() => {
-    fetch(
-      `https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app/${clickedBrand}`
-    )
+    fetch(`http://localhost:5000/${clickedBrand}`)
       .then(res => res.json())
       .then(data => setProducts(data));
   }, [clickedBrand]);

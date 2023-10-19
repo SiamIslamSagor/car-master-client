@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 const ProductDetails = () => {
-  const product = useLoaderData();
+  const loadedProduct = useLoaderData();
   const {
     description,
     design_and_styling_features,
@@ -11,11 +11,25 @@ const ProductDetails = () => {
     name,
     price,
     technology_safety_features,
-  } = product;
-  console.log(product);
+  } = loadedProduct;
+  console.log(loadedProduct);
+
+  const handleAddToCart = product => {
+    console.log(product);
+
+    //
+    fetch("http://localhost:5000/cart_items", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
+  };
   return (
-    <div className="container mx-auto px-2">
-      <h4>Product Name: {product.name}</h4>
+    <div className="container mx-auto px-2 my-5">
       <div className="relative">
         <img className="rounded-2xl" src={img} alt="" />
         <div className="absolute w-full max-sm:p-2 p-5 lg:p-10 rounded-b-2xl bottom-0 flex justify-between bg-black opacity-70 text-white items-center">
@@ -23,7 +37,10 @@ const ProductDetails = () => {
             <h2 className="lg:text-2xl">{name}</h2>
             <h4 className="lg:text-2xl">{price}</h4>
           </div>
-          <button className="btn btn-outline btn-success hover:rounded-full duration-1000 lg:text-lg">
+          <button
+            onClick={() => handleAddToCart(loadedProduct)}
+            className="btn btn-outline btn-success hover:rounded-full duration-1000 lg:text-lg"
+          >
             <FaShoppingCart></FaShoppingCart>Add To Cart
           </button>
         </div>

@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import BrandProduct from "../pages/BrandProduct/BrandProduct";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import MyCart from "../pages/MyCart/MyCart";
 
 const routes = createBrowserRouter([
   {
@@ -13,10 +14,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>
-          fetch(
-            "https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app/"
-          ),
+        loader: () => fetch("http://localhost:5000/"),
       },
       {
         path: "/brand",
@@ -30,9 +28,11 @@ const routes = createBrowserRouter([
         path: "/:productDetails/:id",
         element: <ProductDetails></ProductDetails>,
         loader: ({ params }) =>
-          fetch(
-            `https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app/${params.productDetails}/${params.id}`
-          ),
+          fetch(`http://localhost:5000/${params.productDetails}/${params.id}`),
+      },
+      {
+        path: "/myCart",
+        element: <MyCart></MyCart>,
       },
     ],
   },
