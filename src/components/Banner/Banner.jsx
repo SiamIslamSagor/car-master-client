@@ -22,7 +22,7 @@ const Banner = () => {
           Explore the latest in cars, industry insights, and driving adventures
           at our one-stop automotive destination.
         </p>
-        <button className="btn border-none bg-red-500 text-white">
+        <button className="btn btn-outline btn-info hover:rounded-full duration-700">
           Get Started
         </button>
       </div>

@@ -43,7 +43,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="z-50 font-fontSquare duration-700 sticky top-0  max-lg:bg-black max-lg:text-white lg:bg-white lg:text-custom-color drop-shadow-lg ">
+    <div className="z-50 font-fontSquare   max-lg:bg-black max-lg:text-white lg:bg-white  drop-shadow-lg ">
       <div className="navbar lg:bg-base-100 container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
