@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import Swal from "sweetalert2";
 const ProductDetails = () => {
   const loadedProduct = useLoaderData();
   const {
@@ -15,7 +16,8 @@ const ProductDetails = () => {
   console.log(loadedProduct);
 
   const handleAddToCart = product => {
-    console.log(product);
+    const { _id, ...rest } = product;
+    console.log(_id);
 
     //
     fetch("http://localhost:5000/cart_items", {
@@ -23,9 +25,17 @@ const ProductDetails = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(rest),
     })
-      .then(result => console.log(result))
+      .then(result => {
+        console.log(result);
+        Swal.fire({
+          title: "Done!",
+          text: "Product Added Successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      })
       .catch(error => console.log(error));
   };
   return (
