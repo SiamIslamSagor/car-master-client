@@ -13,7 +13,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/"),
+        loader: () =>
+          fetch(
+            "https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app/"
+          ),
       },
       {
         path: "/brand",
@@ -27,7 +30,9 @@ const routes = createBrowserRouter([
         path: "/:productDetails/:id",
         element: <ProductDetails></ProductDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/${params.productDetails}/${params.id}`),
+          fetch(
+            `https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app/${params.productDetails}/${params.id}`
+          ),
       },
     ],
   },

@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import "./root.css";
 const Root = () => {
   return (
     <div className="font-fontNoto overflow-x-hidden bg-base-200">

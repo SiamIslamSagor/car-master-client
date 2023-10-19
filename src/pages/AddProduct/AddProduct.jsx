@@ -7,13 +7,16 @@ const AddProduct = () => {
     const user = { email, password };
     console.log(user);
     //
-    fetch("http://localhost:5000/toyota_products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
+    fetch(
+      "https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app/toyota_products",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    )
       .then(result => console.log(result))
       .catch(error => console.log(error));
   };

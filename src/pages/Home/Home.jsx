@@ -2,7 +2,7 @@ import Banner from "../../components/Banner/Banner";
 import BrandContainer from "../../components/BrandContainer/BrandContainer";
 import CarBuy from "../../components/CarBuy/CarBuy";
 import Welcome from "../../components/Welcome/Welcome";
-
+import "./Home.css";
 const Home = () => {
   return (
     <div>

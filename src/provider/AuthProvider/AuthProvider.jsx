@@ -8,7 +8,9 @@ const AuthProvider = ({ children }) => {
   const [brandsInfo, setBrandsInfo] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch(
+      "https://car-master-server-j2tlnm8x4-md-siam-islam-sagors-projects.vercel.app"
+    )
       .then(res => res.json())
       .then(data => setBrandsInfo(data));
   }, []);
