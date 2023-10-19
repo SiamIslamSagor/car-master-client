@@ -56,34 +56,53 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="my-4 sm:space-y-2">
-        <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
-          Description:
-        </h3>
-        <p className="text-gray-600 md:text-xl">{description}</p>
+        {description &&
+        engine_options_range &&
+        design_and_styling_features &&
+        luxury_and_comfort_features &&
+        technology_safety_features ? (
+          <div className="my-4 sm:space-y-2">
+            <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
+              Description:
+            </h3>
+            <p className="text-gray-600 md:text-xl">{description}</p>
 
-        <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
-          Engine Options Range:
-        </h3>
-        <p className="text-gray-600 md:text-xl">{engine_options_range}</p>
+            <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
+              Engine Options Range:
+            </h3>
+            <p className="text-gray-600 md:text-xl">{engine_options_range}</p>
 
-        <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
-          Design & Styling Features:
-        </h3>
-        <p className="text-gray-600 md:text-xl">
-          {design_and_styling_features}
-        </p>
+            <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
+              Design & Styling Features:
+            </h3>
+            <p className="text-gray-600 md:text-xl">
+              {design_and_styling_features}
+            </p>
 
-        <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
-          Luxury & Comfort Features:
-        </h3>
-        <p className="text-gray-600 md:text-xl">
-          {luxury_and_comfort_features}
-        </p>
+            <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
+              Luxury & Comfort Features:
+            </h3>
+            <p className="text-gray-600 md:text-xl">
+              {luxury_and_comfort_features}
+            </p>
 
-        <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
-          Technology & Safety Features:
-        </h3>
-        <p className="text-gray-600 md:text-xl">{technology_safety_features}</p>
+            <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
+              Technology & Safety Features:
+            </h3>
+            <p className="text-gray-600 md:text-xl">
+              {technology_safety_features}
+            </p>
+          </div>
+        ) : (
+          <div className="my-4 sm:space-y-2">
+            <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
+              Short Description:
+            </h3>
+            <p className="text-gray-600 md:text-xl">
+              {loadedProduct.shortDescription}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,69 +1,180 @@
+import { useState } from "react";
+import { IoIosAddCircle } from "react-icons/io";
+
 const AddProduct = () => {
+  const [productBrand, setProductBrand] = useState("toyota_products Toyota");
+  const [selectRating, setSelectRating] = useState("5 star");
+  const handleChangeSelect = e => {
+    setProductBrand(e.target.value);
+  };
+  // console.log(productBrand);
+  const handleChangeRating = e => {
+    setSelectRating(e.target.value);
+  };
+  console.log(selectRating);
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    const user = { email, password };
-    console.log(user);
+    const img = form.image.value;
+    const name = form.name.value;
+    const brandName = productBrand.split(" ");
+    const product_brand = brandName[0];
+    const brand_name = brandName[1];
+    const type = form.type.value;
+    const numberPrice = form.price.value;
+    const price = "$" + numberPrice + " (MSRP)";
+    const shortDescription = form.shortDescription.value;
+    const rating = selectRating;
+    // const user = { email, password };
+    const data = {
+      img,
+      name,
+      brand_name,
+      type,
+      rating,
+      price,
+      shortDescription,
+      product_brand,
+    };
+    console.log(data);
+
     //
-    // fetch("http://localhost:5000/cart_items", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(user),
-    // })
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log(error));
+    fetch(`http://localhost:5000/${product_brand}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => console.log(error));
   };
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-        </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleSubmit} className="card-body">
+    <div className="container mx-auto min-h-screen mt-20">
+      <h2 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">
+        Add new Product{" "}
+      </h2>
+      <div className="bg-base-100">
+        <form onSubmit={handleSubmit} className="p-10 xl:p-24">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Image</span>
+            </label>
+            <input
+              name="image"
+              type="text"
+              placeholder="Image"
+              className="input input-bordered"
+              required
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-3">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">Name</span>
               </label>
               <input
-                name="email"
-                type="email"
-                placeholder="email"
+                name="name"
+                type="text"
+                placeholder="Name"
                 className="input input-bordered"
                 required
               />
             </div>
+
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Brand Name</span>
+              </label>
+              <select
+                onChange={handleChangeSelect}
+                className="input input-bordered"
+              >
+                <option value="toyota_products Toyota">Toyota</option>
+                <option value="lamborghini_products Lamborghini">
+                  Lamborghini
+                </option>
+                <option value="bmw_products BMW">BMW</option>
+                <option value="mercedes_products Mercedes-Benz">
+                  Mercedes-Benz
+                </option>
+                <option value="tesla_products Tesla">Tesla</option>
+                <option value="honda_products Honda">Honda</option>
+              </select>
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Type </span>
               </label>
               <input
-                name="password"
-                type="password"
-                placeholder="password"
+                name="type"
+                type="text"
+                placeholder="Type"
                 className="input input-bordered"
                 required
               />
+            </div>
+
+            <div className="form-control">
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <span className="label-text">Price</span>
               </label>
+              <input
+                name="price"
+                type="number"
+                placeholder="Price"
+                className="input input-bordered"
+                required
+              />
             </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Short description</span>
+              </label>
+              <input
+                name="shortDescription"
+                type="text"
+                placeholder="Short description"
+                className="input input-bordered"
+                required
+              />
             </div>
-          </form>
-        </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Rating</span>
+              </label>
+              <select
+                onChange={handleChangeRating}
+                className="input input-bordered"
+              >
+                <option value="5 Star">5 Star</option>
+                <option value="4.8 Star">4.8 Star</option>
+                <option value="4.7 Star">4.7 Star</option>
+                <option value="4.6 Star">4.6 Star</option>
+                <option value="4.5 Star">4.5 Star</option>
+                <option value="4.2 Star">4.2 Star</option>
+                <option value="4 Star">4 Star</option>
+                <option value="3.5 Star">3.5 Star</option>
+                <option value="3 Star">3 Star</option>
+                <option value="2 Star">2 Star</option>
+                <option value="1 Star">1 Star</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="form-control  mt-6">
+            <button className="btn btn-outline btn-info hover:rounded-full rounded-lg duration-700">
+              Add Product<IoIosAddCircle className="text-xl"></IoIosAddCircle>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
