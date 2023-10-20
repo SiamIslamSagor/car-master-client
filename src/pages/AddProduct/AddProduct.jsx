@@ -4,6 +4,7 @@ import { IoIosAddCircle } from "react-icons/io";
 const AddProduct = () => {
   const [productBrand, setProductBrand] = useState("toyota_products Toyota");
   const [selectRating, setSelectRating] = useState("5 star");
+  const [selectType, setSelectType] = useState("car");
   const handleChangeSelect = e => {
     setProductBrand(e.target.value);
   };
@@ -13,6 +14,10 @@ const AddProduct = () => {
   };
   console.log(selectRating);
 
+  const handleChangeType = e => {
+    setSelectType(e.target.value);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -21,12 +26,11 @@ const AddProduct = () => {
     const brandName = productBrand.split(" ");
     const product_brand = brandName[0];
     const brand_name = brandName[1];
-    const type = form.type.value;
+    const type = selectType;
     const numberPrice = form.price.value;
     const price = "$" + numberPrice + " (MSRP)";
     const shortDescription = form.shortDescription.value;
     const rating = selectRating;
-    // const user = { email, password };
     const data = {
       img,
       name,
@@ -38,6 +42,7 @@ const AddProduct = () => {
       product_brand,
     };
     console.log(data);
+    console.log(type);
 
     //
     fetch(
@@ -114,13 +119,23 @@ const AddProduct = () => {
               <label className="label">
                 <span className="label-text">Type </span>
               </label>
-              <input
-                name="type"
-                type="text"
-                placeholder="Type"
+              <select
+                onChange={handleChangeType}
                 className="input input-bordered"
-                required
-              />
+              >
+                <option value="car">car</option>
+                <option value="Passenger Car">Passenger Car</option>
+                <option value="Trucks">Trucks</option>
+                <option value="Vans">Vans</option>
+                <option value="Electric Vehicles">Electric Vehicles</option>
+                <option value="Hybrid Vehicles">Hybrid Vehicles</option>
+                <option value="Luxury Cars">Luxury Cars</option>
+                <option value="Sports Cars">Sports Cars</option>
+                <option value="Classic and Vintage Cars">
+                  Classic and Vintage Cars
+                </option>
+                <option value="Motorcycles">Motorcycles</option>
+              </select>
             </div>
 
             <div className="form-control">
@@ -158,13 +173,23 @@ const AddProduct = () => {
                 className="input input-bordered"
               >
                 <option value="5 Star">5 Star</option>
+                <option value="4.9 Star">4.9 Star</option>
                 <option value="4.8 Star">4.8 Star</option>
                 <option value="4.7 Star">4.7 Star</option>
                 <option value="4.6 Star">4.6 Star</option>
                 <option value="4.5 Star">4.5 Star</option>
+                <option value="4.4 Star">4.4 Star</option>
                 <option value="4.2 Star">4.2 Star</option>
                 <option value="4 Star">4 Star</option>
+                <option value="3.9 Star">3.9 Star</option>
+                <option value="3.8 Star">3.8 Star</option>
+                <option value="3.7 Star">3.7 Star</option>
+                <option value="3.6 Star">3.6 Star</option>
                 <option value="3.5 Star">3.5 Star</option>
+                <option value="3.4 Star">3.4 Star</option>
+                <option value="3.3 Star">3.3 Star</option>
+                <option value="3.2 Star">3.2 Star</option>
+                <option value="3.1 Star">3.1 Star</option>
                 <option value="3 Star">3 Star</option>
                 <option value="2 Star">2 Star</option>
                 <option value="1 Star">1 Star</option>

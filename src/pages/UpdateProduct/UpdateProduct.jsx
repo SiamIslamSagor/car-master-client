@@ -26,6 +26,8 @@ const UpdateProduct = () => {
   console.log(brand_name);
   const [productBrand, setProductBrand] = useState(`${route} ${brand_name}`);
   const [selectRating, setSelectRating] = useState("5 star");
+  const [selectType, setSelectType] = useState(`${type}`);
+  console.log(selectType);
   const handleChangeSelect = e => {
     setProductBrand(e.target.value);
   };
@@ -33,6 +35,9 @@ const UpdateProduct = () => {
     setSelectRating(e.target.value);
   };
   console.log(selectRating);
+  const handleChangeType = e => {
+    setSelectType(e.target.value);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -42,7 +47,7 @@ const UpdateProduct = () => {
     const brandName = productBrand.split(" ");
     const product_brand = brandName[0];
     const brand_name = brandName[1];
-    const type = form.type.value;
+    const type = selectType;
     const numberPrice = form.price.value;
     const price = "$" + numberPrice + " (MSRP)";
     const shortDescription = form.shortDescription.value;
@@ -57,7 +62,7 @@ const UpdateProduct = () => {
       shortDescription,
       product_brand,
     };
-    console.log(product_brand);
+    console.log(type);
     //
     fetch(
       `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${route}/${_id}`,
@@ -173,14 +178,50 @@ const UpdateProduct = () => {
               <label className="label">
                 <span className="label-text">Type </span>
               </label>
-              <input
-                defaultValue={type}
-                name="type"
-                type="text"
-                placeholder="Type"
+              <select
+                onChange={handleChangeType}
                 className="input input-bordered"
-                required
-              />
+              >
+                {type === "car" && <option value="car">car</option>}
+                {type === "Passenger Car" && (
+                  <option value="Passenger Car">Passenger Car</option>
+                )}
+                {type === "Trucks" && <option value="Trucks">Trucks</option>}
+                {type === "Vans" && <option value="Vans">Vans</option>}
+                {type === "Electric Vehicles" && (
+                  <option value="Electric Vehicles">Electric Vehicles</option>
+                )}
+                {type === "Hybrid Vehicles" && (
+                  <option value="Hybrid Vehicles">Hybrid Vehicles</option>
+                )}
+                {type === "Luxury Cars" && (
+                  <option value="Luxury Cars">Luxury Cars</option>
+                )}
+                {type === "Sports Cars" && (
+                  <option value="Sports Cars">Sports Cars</option>
+                )}
+                {type === "Classic and Vintage Cars" && (
+                  <option value="Classic and Vintage Cars">
+                    Classic and Vintage Cars
+                  </option>
+                )}
+                {type === "Motorcycles" && (
+                  <option value="Motorcycles">Motorcycles</option>
+                )}
+
+                <option value="car">car</option>
+                <option value="Passenger Car">Passenger Car</option>
+                <option value="Trucks">Trucks</option>
+                <option value="Vans">Vans</option>
+                <option value="Electric Vehicles">Electric Vehicles</option>
+                <option value="Hybrid Vehicles">Hybrid Vehicles</option>
+                <option value="Luxury Cars">Luxury Cars</option>
+                <option value="Sports Cars">Sports Cars</option>
+                <option value="Classic and Vintage Cars">
+                  Classic and Vintage Cars
+                </option>
+                <option value="Motorcycles">Motorcycles</option>
+              </select>
             </div>
 
             <div className="form-control">
@@ -324,6 +365,7 @@ const UpdateProduct = () => {
                     <option value="3 Star">3 Star</option>
                   ))}
 
+                <option value="5 Star">5 Star</option>
                 <option value="4.9 Star">4.9 Star</option>
                 <option value="4.8 Star">4.8 Star</option>
                 <option value="4.7 Star">4.7 Star</option>
@@ -332,7 +374,15 @@ const UpdateProduct = () => {
                 <option value="4.4 Star">4.4 Star</option>
                 <option value="4.2 Star">4.2 Star</option>
                 <option value="4 Star">4 Star</option>
+                <option value="3.9 Star">3.9 Star</option>
+                <option value="3.8 Star">3.8 Star</option>
+                <option value="3.7 Star">3.7 Star</option>
+                <option value="3.6 Star">3.6 Star</option>
                 <option value="3.5 Star">3.5 Star</option>
+                <option value="3.4 Star">3.4 Star</option>
+                <option value="3.3 Star">3.3 Star</option>
+                <option value="3.2 Star">3.2 Star</option>
+                <option value="3.1 Star">3.1 Star</option>
                 <option value="3 Star">3 Star</option>
                 <option value="2 Star">2 Star</option>
                 <option value="1 Star">1 Star</option>
