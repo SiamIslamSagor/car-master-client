@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
@@ -20,7 +21,9 @@ const AuthProvider = ({ children }) => {
   const [brandsInfo, setBrandsInfo] = useState(null);
   const [clickedProductDetail, setClickedProductDetail] = useState({});
   const [user, setUser] = useState(null);
-  // const [spinner, setSpinner] = useState(true);
+  const [loading, setLoading] = useState(null);
+  const [burgerClick, setBurgerClick] = useState(false);
+  const [spinner, setSpinner] = useState(true);
 
   ///// Authentication
 
@@ -39,23 +42,43 @@ const AuthProvider = ({ children }) => {
 
   // google log in
   const googleLogIn = () => {
+    setSpinner(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // log out user
   const logOut = () => {
+    setSpinner(true);
     return signOut(auth);
+  };
+
+  // update user details
+  const updateUserInfo = (userName, userPhoto) => {
+    console.log(userName, userPhoto);
+    return updateProfile(auth.currentUser, {
+      displayName: userName,
+      photoURL: userPhoto,
+    });
+  };
+
+  // scroll top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, presentUser => {
       setUser(presentUser);
-      console.log("please add ENV,Present User::>", presentUser);
+      console.log("Present User::>", presentUser);
+      setSpinner(false);
     });
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [loading]);
 
   useEffect(() => {
     fetch(
@@ -65,14 +88,20 @@ const AuthProvider = ({ children }) => {
       .then(data => setBrandsInfo(data));
   }, []);
 
-  console.log(brandsInfo);
   const data = {
     user,
+    burgerClick,
+    setBurgerClick,
     createAccount,
+    setLoading,
     logIn,
     googleLogIn,
+    updateUserInfo,
     logOut,
+    scrollToTop,
     brandsInfo,
+    spinner,
+    setSpinner,
     clickedBrand,
     setClickedBrand,
     clickedProductDetail,

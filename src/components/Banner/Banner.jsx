@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bannerImg from "../../assets/banner_img.jpg";
 const Banner = () => {
   const bannerStyle = {
@@ -23,7 +24,7 @@ const Banner = () => {
           at our one-stop automotive destination.
         </p>
         <button className="btn btn-outline btn-info hover:rounded-full duration-700">
-          Get Started
+          <Link to="/register">Get Started</Link>
         </button>
       </div>
     </div>

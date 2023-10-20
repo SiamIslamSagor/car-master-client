@@ -11,7 +11,6 @@ const BrandProduct = () => {
   const brandInfo = brandsInfo?.find(
     brand => brand?.product_brand === clickedBrand
   );
-  console.log(brandInfo);
   useEffect(() => {
     fetch(
       `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${clickedBrand}`
@@ -19,7 +18,6 @@ const BrandProduct = () => {
       .then(res => res.json())
       .then(data => setProducts(data));
   }, [clickedBrand]);
-  console.log(products);
   return (
     <div className="mt-10">
       {brandInfo && <Slider brandInfo={brandInfo}></Slider>}

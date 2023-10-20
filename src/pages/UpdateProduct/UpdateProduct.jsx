@@ -1,11 +1,10 @@
-import { IoIosAddCircle } from "react-icons/io";
 import { getObjInLS } from "../../localStorage";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { BsCloudArrowUp } from "react-icons/bs";
 
 const UpdateProduct = () => {
   const clickUpdateCardData = getObjInLS();
-  console.log(clickUpdateCardData);
 
   const {
     _id,
@@ -19,22 +18,17 @@ const UpdateProduct = () => {
     rating,
     description,
   } = clickUpdateCardData;
-  console.log(route, brand_name);
-  console.log(rating);
 
   ///
-  console.log(brand_name);
   const [productBrand, setProductBrand] = useState(`${route} ${brand_name}`);
   const [selectRating, setSelectRating] = useState("5 star");
   const [selectType, setSelectType] = useState(`${type}`);
-  console.log(selectType);
   const handleChangeSelect = e => {
     setProductBrand(e.target.value);
   };
   const handleChangeRating = e => {
     setSelectRating(e.target.value);
   };
-  console.log(selectRating);
   const handleChangeType = e => {
     setSelectType(e.target.value);
   };
@@ -68,7 +62,6 @@ const UpdateProduct = () => {
       shortDescription,
       product_brand,
     };
-    console.log(type);
     //
     fetch(
       `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${route}/${_id}`,
@@ -399,7 +392,7 @@ const UpdateProduct = () => {
           <div className="form-control  mt-6">
             <button className="btn btn-outline btn-accent hover:rounded-full rounded-lg duration-700">
               Update Product
-              <IoIosAddCircle className="text-xl"></IoIosAddCircle>
+              <BsCloudArrowUp className="text-xl"></BsCloudArrowUp>
             </button>
           </div>
         </form>

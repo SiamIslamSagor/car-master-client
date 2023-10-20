@@ -12,7 +12,6 @@ const AddProduct = () => {
   const handleChangeRating = e => {
     setSelectRating(e.target.value);
   };
-  console.log(selectRating);
 
   const handleChangeType = e => {
     setSelectType(e.target.value);
@@ -41,8 +40,6 @@ const AddProduct = () => {
       shortDescription,
       product_brand,
     };
-    console.log(data);
-    console.log(type);
 
     //
     fetch(

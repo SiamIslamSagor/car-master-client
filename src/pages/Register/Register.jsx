@@ -7,7 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createAccount } = useContext(AuthContext);
+  const { createAccount, updateUserInfo, setLoading } = useContext(AuthContext);
+  //   console.log(updateUserInfo);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -29,17 +30,25 @@ const Register = () => {
     createAccount(email, password)
       .then(result => {
         console.log(result.user);
-        Swal.fire({
-          title: "Done!",
-          text: "Registration Successfully!",
-          icon: "success",
-          confirmButtonText: "close",
-        });
-        form.reset();
+        updateUserInfo(name, photo)
+          .then(res => {
+            console.log("user update done:-->", res);
+            setLoading(true);
+            Swal.fire({
+              title: "Done!",
+              text: "Registration Successfully!",
+              icon: "success",
+              confirmButtonText: "close",
+            });
+            form.reset();
+          })
+          .catch(error => {
+            console.log(error);
+          });
       })
       .catch(err => {
         console.log(err);
-        toast("Registration Problem. Please try again.");
+        toast("Registration Failed. Please try again.");
       });
   };
 
@@ -106,7 +115,12 @@ const Register = () => {
             </div>
           </form>
           <div className="w-full text-center">
-            <Link to="/login">Login page</Link>
+            <span className="font-fontSquare uppercase">
+              Have identity? please
+            </span>{" "}
+            <Link className="underline text-blue-500" to="/login">
+              login
+            </Link>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import WelcomeBG from "../../assets/hondaCover.jpg";
 import WelcomeCar from "../../assets/w-h.png";
 const Welcome = () => {
@@ -25,7 +26,7 @@ const Welcome = () => {
             automotive passion
           </p>
           <button className="btn btn-outline btn-info hover:rounded-full duration-700">
-            Get Started
+            <Link to="/register">Get Started</Link>
           </button>
         </div>
         <div className=" flex items-center justify-center">

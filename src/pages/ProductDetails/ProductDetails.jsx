@@ -14,19 +14,6 @@ const ProductDetails = () => {
     price,
     technology_safety_features,
   } = loadedProduct;
-  console.log(loadedProduct);
-  console.log(
-    description,
-    shortDescription,
-    design_and_styling_features,
-    engine_options_range,
-    img,
-    luxury_and_comfort_features,
-    name,
-    price,
-    technology_safety_features
-  );
-
   const handleAddToCart = product => {
     Swal.fire({
       title: "Loading...!",

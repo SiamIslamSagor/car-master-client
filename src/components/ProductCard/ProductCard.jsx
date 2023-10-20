@@ -13,7 +13,6 @@ const ProductCard = ({ product }) => {
     setObjInLS(product);
     setClickedProductDetail(product);
   };
-  console.log(product);
   const { _id, img, name, brand_name, rating, type, price } = product;
 
   return (

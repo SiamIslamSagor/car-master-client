@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { setBrandInLocalStorage } from "../../localStorage";
 const BrandCard = ({ brand }) => {
-  console.log(brand);
   const { brand_img, brand_title, product_brand } = brand;
 
   return (

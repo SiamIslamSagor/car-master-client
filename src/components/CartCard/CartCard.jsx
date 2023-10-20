@@ -33,7 +33,6 @@ const CartCard = ({ singleProduct, setUpdatedCart, updatedCart }) => {
             singleData => singleData._id !== id
           );
           setUpdatedCart(updatedCartData);
-          console.log("data set done>");
         }
       });
   };

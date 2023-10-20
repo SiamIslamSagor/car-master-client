@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
-
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, googleLogIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -18,6 +20,7 @@ const Login = () => {
     logIn(email, password)
       .then(result => {
         console.log(result.user);
+
         Swal.fire({
           title: "Done!",
           text: "Login Successfully!",
@@ -25,10 +28,33 @@ const Login = () => {
           confirmButtonText: "close",
         });
         form.reset();
+        navigate(location.state ? location.state : "/");
       })
       .catch(err => {
         console.log(err);
         toast("Invalid email or password. Please try again.");
+      });
+  };
+
+  const handleGoogleLoggedIn = () => {
+    googleLogIn()
+      .then(() => {
+        Swal.fire({
+          title: "Done!",
+          text: "Google Login Successfully!",
+          icon: "success",
+          confirmButtonText: "close",
+        });
+        navigate(location.state ? location.state : "/");
+      })
+      .catch(err => {
+        console.log(err);
+        Swal.fire({
+          title: "Failed!",
+          text: "Failed to login with google, please try again!",
+          icon: "error",
+          confirmButtonText: "close",
+        });
       });
   };
 
@@ -67,11 +93,26 @@ const Login = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-accent">Login</button>
             </div>
           </form>
           <div className="w-full text-center">
-            <Link to="/register">Register page</Link>
+            <span className="font-fontSquare uppercase">
+              new in car master?
+            </span>{" "}
+            <Link className="underline text-blue-500" to="/register">
+              Register
+            </Link>
+            <p className="text-gray-500">or</p>
+            <p className="text-gray-500">Login with</p>
+            <div className="w-full flex justify-center items-center ">
+              <button
+                onClick={handleGoogleLoggedIn}
+                className="py-2 rounded-lg px-4 lg:px-6  border border-[#1d4ed8] hover:rounded-full hover:bg-[#1d4ed8] hover:text-white duration-700 flex items-center gap-2 mt-2"
+              >
+                google <FcGoogle></FcGoogle>
+              </button>
+            </div>
           </div>
         </div>
       </div>

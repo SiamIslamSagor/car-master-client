@@ -5,7 +5,6 @@ import { useLoaderData } from "react-router-dom";
 const MyCart = () => {
   const loadedCartData = useLoaderData();
   const [updatedCart, setUpdatedCart] = useState(loadedCartData);
-  console.log(">>>>>", updatedCart);
   return (
     <div>
       <div className=" my-10 space-y-10 mx-auto border">
