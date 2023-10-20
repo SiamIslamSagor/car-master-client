@@ -6,6 +6,8 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import MyCart from "../pages/MyCart/MyCart";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const routes = createBrowserRouter([
           fetch(
             "https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/"
           ),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/brand",

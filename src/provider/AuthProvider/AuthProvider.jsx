@@ -1,12 +1,61 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+} from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
+
+const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [clickedBrand, setClickedBrand] = useState("");
   const [brandsInfo, setBrandsInfo] = useState(null);
   const [clickedProductDetail, setClickedProductDetail] = useState({});
+  const [user, setUser] = useState(null);
+  // const [spinner, setSpinner] = useState(true);
+
+  ///// Authentication
+
+  // google provider
+  const googleProvider = new GoogleAuthProvider();
+
+  // create user account
+  const createAccount = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  // sign in user account
+  const logIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // google log in
+  const googleLogIn = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  // log out user
+  const logOut = () => {
+    return signOut(auth);
+  };
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, presentUser => {
+      setUser(presentUser);
+      console.log("Present User::>", presentUser);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -18,7 +67,11 @@ const AuthProvider = ({ children }) => {
 
   console.log(brandsInfo);
   const data = {
-    user: "moksed ali",
+    user,
+    createAccount,
+    logIn,
+    googleLogIn,
+    logOut,
     brandsInfo,
     clickedBrand,
     setClickedBrand,
