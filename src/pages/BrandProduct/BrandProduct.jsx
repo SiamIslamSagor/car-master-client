@@ -24,7 +24,9 @@ const BrandProduct = () => {
     <div className="mt-10">
       {brandInfo && <Slider brandInfo={brandInfo}></Slider>}
       <h3 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">
-        Our Available Product
+        {products.length > 0
+          ? ` Our Available Product in ${brandInfo?.brand_title.split(": ")[0]}`
+          : "PRODUCT NOT AVAILABLE FOR THIS BRAND"}
       </h3>
       <div className="container mx-auto space-y-6">
         {products && brandInfo ? (

@@ -5,6 +5,12 @@ const CartCard = ({ singleProduct, setUpdatedCart, updatedCart }) => {
   const { _id, img, name, brand_name, rating, type, price } = singleProduct;
 
   const handleDelete = id => {
+    Swal.fire({
+      title: "Process Running...!",
+      text: "We delete your item, please wait!",
+      icon: "info",
+      confirmButtonText: "close",
+    });
     console.log(id);
     // to delete
     fetch(

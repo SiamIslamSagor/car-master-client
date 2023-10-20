@@ -28,6 +28,12 @@ const ProductDetails = () => {
   );
 
   const handleAddToCart = product => {
+    Swal.fire({
+      title: "Loading...!",
+      text: "Information adding in your cart, please wait!",
+      icon: "info",
+      confirmButtonText: "close",
+    });
     const { _id, ...rest } = product;
     console.log(_id);
 

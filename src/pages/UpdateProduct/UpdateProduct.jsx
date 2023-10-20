@@ -43,7 +43,7 @@ const UpdateProduct = () => {
     Swal.fire({
       title: "Loading...!",
       text: "Information updating, please wait!",
-      icon: "warning",
+      icon: "info",
       confirmButtonText: "close",
     });
     e.preventDefault();
