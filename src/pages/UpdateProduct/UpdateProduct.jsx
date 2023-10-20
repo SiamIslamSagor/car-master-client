@@ -20,6 +20,7 @@ const UpdateProduct = () => {
     description,
   } = clickUpdateCardData;
   console.log(route, brand_name);
+  console.log(rating);
 
   ///
   console.log(brand_name);
@@ -187,7 +188,7 @@ const UpdateProduct = () => {
                 <span className="label-text">Price</span>
               </label>
               <input
-                defaultValue={price}
+                defaultValue={price.split(" ")[0].slice(1, price.length)}
                 name="price"
                 type="text"
                 placeholder="Price"
@@ -218,29 +219,111 @@ const UpdateProduct = () => {
                 onChange={handleChangeRating}
                 className="input input-bordered"
               >
-                {rating === "4.9 star" && (
-                  <option value="4.9 Star">4.9 Star</option>
-                )}
+                {rating === "5 star" ||
+                  (rating === "5 Star" && (
+                    <option value="5 Star">5 Star</option>
+                  ))}
 
-                {rating === "4.8 star" && (
-                  <option value="4.8 Star">4.8 Star</option>
-                )}
+                {rating === "4.9 star" ||
+                  (rating === "4.9 Star" && (
+                    <option value="4.9 Star">4.9 Star</option>
+                  ))}
 
-                {rating === "4.7 star" && (
-                  <option value="4.7 Star">4.7 Star</option>
-                )}
+                {rating === "4.8 star" ||
+                  (rating === "4.8 Star" && (
+                    <option value="4.8 Star">4.8 Star</option>
+                  ))}
 
-                {rating === "4.6 star" && (
-                  <option value="4.6 Star">4.6 Star</option>
-                )}
+                {rating === "4.7 star" ||
+                  (rating === "4.7 Star" && (
+                    <option value="4.7 Star">4.7 Star</option>
+                  ))}
 
-                {rating === "4.5 star" && (
-                  <option value="4.5 Star">4.5 Star</option>
-                )}
+                {rating === "4.6 star" ||
+                  (rating === "4.6 Star" && (
+                    <option value="4.6 Star">4.6 Star</option>
+                  ))}
 
-                {rating === "4.4 star" && (
-                  <option value="4.4 Star">4.4 Star</option>
-                )}
+                {rating === "4.5 star" ||
+                  (rating === "4.5 Star" && (
+                    <option value="4.5 Star">4.5 Star</option>
+                  ))}
+
+                {rating === "4.4 star" ||
+                  (rating === "4.4 Star" && (
+                    <option value="4.4 Star">4.4 Star</option>
+                  ))}
+
+                {rating === "4.3 star" ||
+                  (rating === "4.3 Star" && (
+                    <option value="4.3 Star">4.3 Star</option>
+                  ))}
+
+                {rating === "4.2 star" ||
+                  (rating === "4.2 Star" && (
+                    <option value="4.2 Star">4.2 Star</option>
+                  ))}
+
+                {rating === "4.1 star" ||
+                  (rating === "4.1 Star" && (
+                    <option value="4.1 Star">4.1 Star</option>
+                  ))}
+
+                {rating === "4 star" ||
+                  (rating === "4 Star" && (
+                    <option value="4 Star">4 Star</option>
+                  ))}
+
+                {rating === "3.9 star" ||
+                  (rating === "3.9 Star" && (
+                    <option value="3.9 Star">3.9 Star</option>
+                  ))}
+
+                {rating === "3.8 star" ||
+                  (rating === "3.8 Star" && (
+                    <option value="3.8 Star">3.8 Star</option>
+                  ))}
+
+                {rating === "3.7 star" ||
+                  (rating === "3.7 Star" && (
+                    <option value="3.7 Star">3.7 Star</option>
+                  ))}
+
+                {rating === "3.6 star" ||
+                  (rating === "3.6 Star" && (
+                    <option value="3.6 Star">3.6 Star</option>
+                  ))}
+
+                {rating === "3.5 star" ||
+                  (rating === "3.5 Star" && (
+                    <option value="3.5 Star">3.5 Star</option>
+                  ))}
+
+                {rating === "3.4 star" ||
+                  (rating === "3.4 Star" && (
+                    <option value="3.4 Star">3.4 Star</option>
+                  ))}
+
+                {rating === "3.3 star" ||
+                  (rating === "3.3 Star" && (
+                    <option value="3.3 Star">3.3 Star</option>
+                  ))}
+
+                {rating === "3.2 star" ||
+                  (rating === "3.2 Star" && (
+                    <option value="3.2 Star">3.2 Star</option>
+                  ))}
+
+                {rating === "3.1 star" ||
+                  (rating === "3.1 Star" && (
+                    <option value="3.1 Star">3.1 Star</option>
+                  ))}
+
+                {rating === "3 star" ||
+                  (rating === "3 Star" && (
+                    <option value="3 Star">3 Star</option>
+                  ))}
+
                 <option value="4.9 Star">4.9 Star</option>
                 <option value="4.8 Star">4.8 Star</option>
                 <option value="4.7 Star">4.7 Star</option>
