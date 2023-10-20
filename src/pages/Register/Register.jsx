@@ -25,7 +25,7 @@ const Register = () => {
       );
     }
 
-    //
+    // crate user account
     createAccount(email, password)
       .then(result => {
         console.log(result.user);
