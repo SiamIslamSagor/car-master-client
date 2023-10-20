@@ -1,13 +1,33 @@
-import { useState } from "react";
 import { IoIosAddCircle } from "react-icons/io";
+import { getObjInLS } from "../../localStorage";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
-const AddProduct = () => {
-  const [productBrand, setProductBrand] = useState("toyota_products Toyota");
+const UpdateProduct = () => {
+  const clickUpdateCardData = getObjInLS();
+  console.log(clickUpdateCardData);
+
+  const {
+    _id,
+    img,
+    name,
+    brand_name,
+    product_brand: route,
+    type,
+    price,
+    shortDescription,
+    rating,
+    description,
+  } = clickUpdateCardData;
+  console.log(route, brand_name);
+
+  ///
+  console.log(brand_name);
+  const [productBrand, setProductBrand] = useState(`${route} ${brand_name}`);
   const [selectRating, setSelectRating] = useState("5 star");
   const handleChangeSelect = e => {
     setProductBrand(e.target.value);
   };
-  // console.log(productBrand);
   const handleChangeRating = e => {
     setSelectRating(e.target.value);
   };
@@ -26,8 +46,7 @@ const AddProduct = () => {
     const price = "$" + numberPrice + " (MSRP)";
     const shortDescription = form.shortDescription.value;
     const rating = selectRating;
-    // const user = { email, password };
-    const data = {
+    const updatedData = {
       img,
       name,
       brand_name,
@@ -37,28 +56,37 @@ const AddProduct = () => {
       shortDescription,
       product_brand,
     };
-    console.log(data);
-
+    console.log(product_brand);
     //
     fetch(
-      `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${product_brand}`,
+      `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${route}/${_id}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(updatedData),
       }
     )
       .then(result => {
         console.log(result);
+        console.log(brand_name, route);
+        Swal.fire({
+          title: "Done!",
+          text: "Information Update Successfully!",
+          icon: "success",
+          confirmButtonText: "close",
+        });
       })
-      .catch(error => console.log(error));
+      .catch(err => {
+        console.log(err);
+      });
   };
+
   return (
     <div className="container mx-auto min-h-screen mt-20">
       <h2 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">
-        Add new Product{" "}
+        Update a Product{" "}
       </h2>
       <div className="bg-base-100">
         <form onSubmit={handleSubmit} className="p-10 xl:p-24">
@@ -67,6 +95,7 @@ const AddProduct = () => {
               <span className="label-text">Image</span>
             </label>
             <input
+              defaultValue={img}
               name="image"
               type="text"
               placeholder="Image"
@@ -81,6 +110,7 @@ const AddProduct = () => {
                 <span className="label-text">Name</span>
               </label>
               <input
+                defaultValue={name}
                 name="name"
                 type="text"
                 placeholder="Name"
@@ -97,6 +127,34 @@ const AddProduct = () => {
                 onChange={handleChangeSelect}
                 className="input input-bordered"
               >
+                {brand_name === "Toyota" && (
+                  <option value="toyota_products Toyota">Toyota</option>
+                )}
+
+                {brand_name === "Lamborghini" && (
+                  <option value="lamborghini_products Lamborghini">
+                    Lamborghini
+                  </option>
+                )}
+
+                {brand_name === "BMW" && (
+                  <option value="bmw_products BMW">BMW</option>
+                )}
+
+                {brand_name === "Marcedes-Benz" && (
+                  <option value="mercedes_products Mercedes-Benz">
+                    Mercedes-Benz
+                  </option>
+                )}
+
+                {brand_name === "Tesla" && (
+                  <option value="tesla_products Tesla">Tesla</option>
+                )}
+
+                {brand_name === "Honda" && (
+                  <option value="honda_products Honda">Honda</option>
+                )}
+
                 <option value="toyota_products Toyota">Toyota</option>
                 <option value="lamborghini_products Lamborghini">
                   Lamborghini
@@ -115,6 +173,7 @@ const AddProduct = () => {
                 <span className="label-text">Type </span>
               </label>
               <input
+                defaultValue={type}
                 name="type"
                 type="text"
                 placeholder="Type"
@@ -128,8 +187,9 @@ const AddProduct = () => {
                 <span className="label-text">Price</span>
               </label>
               <input
+                defaultValue={price}
                 name="price"
-                type="number"
+                type="text"
                 placeholder="Price"
                 className="input input-bordered"
                 required
@@ -141,6 +201,7 @@ const AddProduct = () => {
                 <span className="label-text">Short description</span>
               </label>
               <input
+                defaultValue={shortDescription ? shortDescription : description}
                 name="shortDescription"
                 type="text"
                 placeholder="Short description"
@@ -157,11 +218,35 @@ const AddProduct = () => {
                 onChange={handleChangeRating}
                 className="input input-bordered"
               >
-                <option value="5 Star">5 Star</option>
+                {rating === "4.9 star" && (
+                  <option value="4.9 Star">4.9 Star</option>
+                )}
+
+                {rating === "4.8 star" && (
+                  <option value="4.8 Star">4.8 Star</option>
+                )}
+
+                {rating === "4.7 star" && (
+                  <option value="4.7 Star">4.7 Star</option>
+                )}
+
+                {rating === "4.6 star" && (
+                  <option value="4.6 Star">4.6 Star</option>
+                )}
+
+                {rating === "4.5 star" && (
+                  <option value="4.5 Star">4.5 Star</option>
+                )}
+
+                {rating === "4.4 star" && (
+                  <option value="4.4 Star">4.4 Star</option>
+                )}
+                <option value="4.9 Star">4.9 Star</option>
                 <option value="4.8 Star">4.8 Star</option>
                 <option value="4.7 Star">4.7 Star</option>
                 <option value="4.6 Star">4.6 Star</option>
                 <option value="4.5 Star">4.5 Star</option>
+                <option value="4.4 Star">4.4 Star</option>
                 <option value="4.2 Star">4.2 Star</option>
                 <option value="4 Star">4 Star</option>
                 <option value="3.5 Star">3.5 Star</option>
@@ -173,8 +258,9 @@ const AddProduct = () => {
           </div>
 
           <div className="form-control  mt-6">
-            <button className="btn btn-outline btn-info hover:rounded-full rounded-lg duration-700">
-              Add Product<IoIosAddCircle className="text-xl"></IoIosAddCircle>
+            <button className="btn btn-outline btn-accent hover:rounded-full rounded-lg duration-700">
+              Update Product
+              <IoIosAddCircle className="text-xl"></IoIosAddCircle>
             </button>
           </div>
         </form>
@@ -183,4 +269,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

@@ -6,7 +6,7 @@ const MyCart = () => {
   //   const [loadedCartData, setLoadedCartData] = useState([]);
 
   //   useEffect(() => {
-  //     fetch("http://localhost:5000/cart_items")
+  //     fetch("https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/cart_items")
   //       .then(res => res.json())
   //       .then(data => setLoadedCartData(data));
   //   }, []);

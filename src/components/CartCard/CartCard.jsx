@@ -7,9 +7,12 @@ const CartCard = ({ singleProduct, setUpdatedCart, updatedCart }) => {
   const handleDelete = id => {
     console.log(id);
     // to delete
-    fetch(`http://localhost:5000/cart_items/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/cart_items/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then(res => res.json())
       .then(data => {
         console.log(data);

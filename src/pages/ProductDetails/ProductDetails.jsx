@@ -5,6 +5,7 @@ const ProductDetails = () => {
   const loadedProduct = useLoaderData();
   const {
     description,
+    shortDescription,
     design_and_styling_features,
     engine_options_range,
     img,
@@ -14,19 +15,33 @@ const ProductDetails = () => {
     technology_safety_features,
   } = loadedProduct;
   console.log(loadedProduct);
+  console.log(
+    description,
+    shortDescription,
+    design_and_styling_features,
+    engine_options_range,
+    img,
+    luxury_and_comfort_features,
+    name,
+    price,
+    technology_safety_features
+  );
 
   const handleAddToCart = product => {
     const { _id, ...rest } = product;
     console.log(_id);
 
     //
-    fetch("http://localhost:5000/cart_items", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(rest),
-    })
+    fetch(
+      "https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/cart_items",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(rest),
+      }
+    )
       .then(result => {
         console.log(result);
         Swal.fire({
@@ -56,36 +71,45 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="my-4 sm:space-y-2">
-        {description &&
-        engine_options_range &&
-        design_and_styling_features &&
-        luxury_and_comfort_features &&
-        technology_safety_features ? (
-          <div className="my-4 sm:space-y-2">
+        <div></div>
+        {description && (
+          <div>
             <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
               Description:
             </h3>
             <p className="text-gray-600 md:text-xl">{description}</p>
-
+          </div>
+        )}
+        {engine_options_range && (
+          <div>
             <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
               Engine Options Range:
             </h3>
             <p className="text-gray-600 md:text-xl">{engine_options_range}</p>
-
+          </div>
+        )}
+        {design_and_styling_features && (
+          <div>
             <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
               Design & Styling Features:
             </h3>
             <p className="text-gray-600 md:text-xl">
               {design_and_styling_features}
             </p>
-
+          </div>
+        )}
+        {luxury_and_comfort_features && (
+          <div>
             <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
               Luxury & Comfort Features:
             </h3>
             <p className="text-gray-600 md:text-xl">
               {luxury_and_comfort_features}
             </p>
-
+          </div>
+        )}
+        {technology_safety_features && (
+          <div>
             <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
               Technology & Safety Features:
             </h3>
@@ -93,8 +117,9 @@ const ProductDetails = () => {
               {technology_safety_features}
             </p>
           </div>
-        ) : (
-          <div className="my-4 sm:space-y-2">
+        )}
+        {shortDescription && (
+          <div>
             <h3 className="md:text-3xl lg:text-4xl underline font-fontSquare">
               Short Description:
             </h3>

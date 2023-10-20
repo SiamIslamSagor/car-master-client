@@ -7,4 +7,18 @@ const getBrandInLocalStorage = () => {
   return JSON.parse(storedBrand);
 };
 
-export { setBrandInLocalStorage, getBrandInLocalStorage };
+const setObjInLS = oneObject => {
+  localStorage.setItem("clickedUpdateCard", JSON.stringify(oneObject));
+};
+
+const getObjInLS = () => {
+  const data = localStorage.getItem("clickedUpdateCard");
+  return JSON.parse(data);
+};
+
+export {
+  setBrandInLocalStorage,
+  getBrandInLocalStorage,
+  setObjInLS,
+  getObjInLS,
+};

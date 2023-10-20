@@ -6,9 +6,12 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [clickedBrand, setClickedBrand] = useState("");
   const [brandsInfo, setBrandsInfo] = useState(null);
+  const [clickedProductDetail, setClickedProductDetail] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch(
+      "https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app"
+    )
       .then(res => res.json())
       .then(data => setBrandsInfo(data));
   }, []);
@@ -19,6 +22,8 @@ const AuthProvider = ({ children }) => {
     brandsInfo,
     clickedBrand,
     setClickedBrand,
+    clickedProductDetail,
+    setClickedProductDetail,
   };
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 };

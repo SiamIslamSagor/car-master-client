@@ -5,6 +5,7 @@ import BrandProduct from "../pages/BrandProduct/BrandProduct";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import MyCart from "../pages/MyCart/MyCart";
+import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 
 const routes = createBrowserRouter([
   {
@@ -14,7 +15,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/"),
+        loader: () =>
+          fetch(
+            "https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/"
+          ),
       },
       {
         path: "/brand",
@@ -25,15 +29,24 @@ const routes = createBrowserRouter([
         element: <AddProduct></AddProduct>,
       },
       {
+        path: "/updateProduct",
+        element: <UpdateProduct></UpdateProduct>,
+      },
+      {
         path: "/:productDetails/:id",
         element: <ProductDetails></ProductDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/${params.productDetails}/${params.id}`),
+          fetch(
+            `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${params.productDetails}/${params.id}`
+          ),
       },
       {
         path: "/myCart",
         element: <MyCart></MyCart>,
-        loader: () => fetch("http://localhost:5000/cart_items"),
+        loader: () =>
+          fetch(
+            "https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/cart_items"
+          ),
       },
     ],
   },
