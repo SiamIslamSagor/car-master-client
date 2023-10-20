@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, presentUser => {
       setUser(presentUser);
-      console.log("Present User::>", presentUser);
+      console.log("please add ENV,Present User::>", presentUser);
     });
     return () => {
       unSubscribe();

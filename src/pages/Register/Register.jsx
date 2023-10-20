@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const { createAccount } = useContext(AuthContext);
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -9,6 +17,30 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
+
+    // validation
+    if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*\d]{6,}$/.test(password)) {
+      return toast(
+        "Please provide password they have at least 6 characters long, contain one uppercase letter, and have  one special character."
+      );
+    }
+
+    //
+    createAccount(email, password)
+      .then(result => {
+        console.log(result.user);
+        Swal.fire({
+          title: "Done!",
+          text: "Registration Successfully!",
+          icon: "success",
+          confirmButtonText: "close",
+        });
+        form.reset();
+      })
+      .catch(err => {
+        console.log(err);
+        toast("Registration Problem. Please try again.");
+      });
   };
 
   return (
@@ -78,6 +110,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
