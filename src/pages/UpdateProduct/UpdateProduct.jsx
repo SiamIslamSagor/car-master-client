@@ -40,6 +40,12 @@ const UpdateProduct = () => {
   };
 
   const handleSubmit = e => {
+    Swal.fire({
+      title: "Loading...!",
+      text: "Information updating, please wait!",
+      icon: "warning",
+      confirmButtonText: "close",
+    });
     e.preventDefault();
     const form = e.target;
     const img = form.image.value;

@@ -37,7 +37,15 @@ const ProductCard = ({ product }) => {
             starSpacing="8px"
             starHoverColor="green"
             starRatedColor={`${
-              rating.split(" ")[0] >= 4.8 ? "yellow" : "green"
+              rating.split(" ")[0] >= 4.8
+                ? "yellow"
+                : rating.split(" ")[0] >= 4.3
+                ? "green"
+                : rating.split(" ")[0] >= 4
+                ? "blue"
+                : rating.split(" ")[0] >= 3.5
+                ? "violet"
+                : "red"
             } `}
           />
         </div>
