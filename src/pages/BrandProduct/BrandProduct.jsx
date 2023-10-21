@@ -3,6 +3,7 @@ import { getBrandInLocalStorage } from "../../localStorage";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Slider from "../../components/Slider/Slider";
+import { Helmet } from "react-helmet-async";
 
 const BrandProduct = () => {
   const { brandsInfo, scrollToTop } = useContext(AuthContext);
@@ -24,6 +25,9 @@ const BrandProduct = () => {
   }, [scrollToTop]);
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>Car Master | Brand Product</title>
+      </Helmet>
       {brandInfo && <Slider brandInfo={brandInfo}></Slider>}
       <h3 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">
         {products?.length > 0

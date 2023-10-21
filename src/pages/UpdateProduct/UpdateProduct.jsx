@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { BsCloudArrowUp } from "react-icons/bs";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProduct = () => {
   const { scrollToTop } = useContext(AuthContext);
@@ -96,6 +97,9 @@ const UpdateProduct = () => {
 
   return (
     <div className="container mx-auto min-h-screen mt-20">
+      <Helmet>
+        <title>Car Master | Update Product</title>
+      </Helmet>
       <h2 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">
         Update a Product{" "}
       </h2>

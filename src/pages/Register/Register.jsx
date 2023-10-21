@@ -5,6 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createAccount, updateUserInfo, setLoading, scrollToTop } =
@@ -58,6 +59,9 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Car Master | Register</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div>
           <h2 className="text-xl md:text-3xl lg:text-4xl text-center underline uppercase font-fontSquare">

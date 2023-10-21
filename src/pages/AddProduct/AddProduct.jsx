@@ -3,6 +3,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddProduct = () => {
   const { scrollToTop } = useContext(AuthContext);
@@ -80,6 +81,9 @@ const AddProduct = () => {
 
   return (
     <div className="container mx-auto min-h-screen mt-20">
+      <Helmet>
+        <title>Car Master | Add Product</title>
+      </Helmet>
       <h2 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">
         Add new Product{" "}
       </h2>

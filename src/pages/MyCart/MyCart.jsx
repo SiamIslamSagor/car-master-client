@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import CartCard from "../../components/CartCard/CartCard";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyCart = () => {
   const { user, scrollToTop } = useContext(AuthContext);
@@ -15,6 +16,9 @@ const MyCart = () => {
   }, [scrollToTop]);
   return (
     <div>
+      <Helmet>
+        <title>Car Master | My Cart</title>
+      </Helmet>
       {userCartItem.length > 0 && (
         <h3 className="text-center mt-10 font-fontSquare font-bold uppercase underline text-lg md:text-3xl">
           Your Added Cart Item

@@ -3,6 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 const ProductDetails = () => {
   const { user, scrollToTop } = useContext(AuthContext);
   const userEmail = user?.email;
@@ -58,6 +59,9 @@ const ProductDetails = () => {
   }, [scrollToTop]);
   return (
     <div className="container mx-auto px-2 my-5">
+      <Helmet>
+        <title>Car Master | Product Details</title>
+      </Helmet>
       <div className="relative">
         <img className="rounded-2xl" src={img} alt="Product image" />
         <div className="absolute w-full max-sm:p-2 p-5 lg:p-10 rounded-b-2xl bottom-0 flex justify-between bg-black opacity-70 text-white items-center">

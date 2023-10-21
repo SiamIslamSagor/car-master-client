@@ -4,6 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { logIn, googleLogIn } = useContext(AuthContext);
   const location = useLocation();
@@ -60,6 +61,9 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Car Master | LogIn</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div>
           <h2 className="text-xl md:text-3xl lg:text-4xl text-center underline uppercase font-fontSquare">
