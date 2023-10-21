@@ -1,0 +1,21 @@
+/* .navbar-nav > .active > a {
+  color: aqua;
+  background-color: chartreuse;
+}
+.nav-item > a:hover {
+  color: aqua;
+}
+ */
+
+/* p {
+  color: red;
+  background-color: green;
+  text-decoration: underline;
+}
+ */
+/* .menu li > *:not(ul):not(.menu-title):not(details):active,
+.menu li > *:not(ul):not(.menu-title):not(details).active,
+.menu li > details > summary:active {
+  text-decoration: underline;
+}
+ */

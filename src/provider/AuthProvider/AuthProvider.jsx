@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(null);
   const [burgerClick, setBurgerClick] = useState(false);
   const [spinner, setSpinner] = useState(true);
+  const [webTheme, setWebTheme] = useState(false);
 
   ///// Authentication
 
@@ -106,6 +107,8 @@ const AuthProvider = ({ children }) => {
     setClickedBrand,
     clickedProductDetail,
     setClickedProductDetail,
+    webTheme,
+    setWebTheme,
   };
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 };

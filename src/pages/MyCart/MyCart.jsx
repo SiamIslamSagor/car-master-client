@@ -17,7 +17,7 @@ const MyCart = () => {
           Your Added Cart Item
         </h3>
       )}
-      <div className=" my-10 space-y-10 mx-auto border">
+      <div className=" my-10 space-y-10 mx-auto">
         {userCartItem.length > 0 ? (
           userCartItem.map(singleProduct => (
             <CartCard

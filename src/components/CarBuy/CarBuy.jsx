@@ -8,7 +8,9 @@ const CarBuy = () => {
       <h3 className="text-3xl font-fontSquare my-20 text-center">
         How to buy your car with Car Master?
       </h3>
-      <div className="bg-white rounded-2xl p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center max-lg:gap-10">
+      <div
+        className={` rounded-2xl p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center max-lg:gap-10`}
+      >
         <div className="flex flex-col items-center justify-center gap-5 max-md:border-b-[2px] md:border-r-[2px]">
           <h3 className="flex items-center gap-2 text-2xl">
             <BiBadgeCheck></BiBadgeCheck>

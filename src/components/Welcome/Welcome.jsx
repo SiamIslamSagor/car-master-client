@@ -14,7 +14,7 @@ const Welcome = () => {
           <h3 className="text-4xl text-white  font-fontSquare">
             Welcome to Car Master.
           </h3>
-          <p className="max-w-[450px]">
+          <p className="max-w-[450px] text-white">
             {" "}
             your ultimate destination for everything automotive. Dive into a
             world of endless possibilities where you can search for your dream

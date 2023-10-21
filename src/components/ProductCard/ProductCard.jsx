@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { CgDetailsMore } from "react-icons/cg";
-import { GrDocumentUpdate } from "react-icons/gr";
+import { RxUpdate } from "react-icons/rx";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { setObjInLS } from "../../localStorage";
@@ -57,7 +57,7 @@ const ProductCard = ({ product }) => {
               className="btn btn-secondary btn-outline hover:rounded-full duration-1000"
             >
               Update
-              <GrDocumentUpdate className="text-xl text-white"></GrDocumentUpdate>
+              <RxUpdate className="text-xl"></RxUpdate>
             </button>
           </Link>
           <Link to={`/${product?.product_brand}/${_id}`}>
