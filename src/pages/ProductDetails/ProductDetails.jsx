@@ -1,7 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
+  const userEmail = user?.email;
   const loadedProduct = useLoaderData();
   const {
     description,
@@ -21,8 +25,12 @@ const ProductDetails = () => {
       icon: "info",
       confirmButtonText: "close",
     });
-    const { _id, ...rest } = product;
+    const allInfo = { userEmail, ...product };
+    const { _id, ...rest } = allInfo;
+
     console.log(_id);
+    // const { _id, ...rest } = product;
+    // console.log(_id);
 
     //
     fetch(

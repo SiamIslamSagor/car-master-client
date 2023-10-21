@@ -4,16 +4,23 @@ import logo from "/car_img_logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 const Navbar = () => {
   const { user, logOut, burgerClick, setBurgerClick } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
-      .then(res => {
-        console.log(res);
-        console.log("log out done.");
+      .then(() => {
+        Swal.fire({
+          title: "Done!",
+          text: "Log Out Successfully!",
+          icon: "success",
+          confirmButtonText: "close",
+        });
       })
       .catch(error => {
         console.log(error);
+        toast("Log Out Failed");
       });
   };
   const links = (
@@ -140,6 +147,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
