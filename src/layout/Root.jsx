@@ -11,7 +11,7 @@ const Root = () => {
   return (
     <div className="font-fontNoto overflow-x-hidden bg-base-200">
       <Navbar></Navbar>
-      <div className={`${burgerClick ? "mt-60" : "mt-0"} duration-700`}>
+      <div className={`${burgerClick ? "max-lg:mt-60" : "mt-0"} duration-700`}>
         <Outlet></Outlet>
       </div>
       <div className="container mx-auto flex  justify-end py-10">

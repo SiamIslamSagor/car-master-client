@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IoIosAddCircle } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const [productBrand, setProductBrand] = useState("toyota_products Toyota");
@@ -18,6 +20,12 @@ const AddProduct = () => {
   };
 
   const handleSubmit = e => {
+    Swal.fire({
+      title: "Loading...!",
+      text: "Product addition process is in progress!",
+      icon: "info",
+      confirmButtonText: "close",
+    });
     e.preventDefault();
     const form = e.target;
     const img = form.image.value;
@@ -52,10 +60,16 @@ const AddProduct = () => {
         body: JSON.stringify(data),
       }
     )
-      .then(result => {
-        console.log(result);
+      .then(() => {
+        Swal.fire({
+          title: "Congratulations!",
+          text: "Product added successfully!",
+          icon: "success",
+          confirmButtonText: "close",
+        });
+        form.reset();
       })
-      .catch(error => console.log(error));
+      .catch(() => toast("Failed to add product. Please try again."));
   };
   return (
     <div className="container mx-auto min-h-screen mt-20">
@@ -201,6 +215,7 @@ const AddProduct = () => {
           </div>
         </form>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

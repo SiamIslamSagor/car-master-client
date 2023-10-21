@@ -25,9 +25,13 @@ const Welcome = () => {
             journey with us today and unlock the full potential of your
             automotive passion
           </p>
-          <button className="btn btn-outline btn-info hover:rounded-full duration-700">
-            <Link to="/register">Get Started</Link>
-          </button>
+          <div>
+            <Link to="/register">
+              <button className="btn btn-outline btn-info hover:rounded-full duration-700">
+                Get Started
+              </button>
+            </Link>
+          </div>
         </div>
         <div className=" flex items-center justify-center">
           <img className="" src={WelcomeCar} alt="" />

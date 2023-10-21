@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import "./navbar.css";
 import defaultProfile from "../../assets/default_profile.jpg";
 import logo from "/car_img_logo.png";
 import lightLogo from "/car_logo_light.png";
@@ -37,12 +36,6 @@ const Navbar = () => {
       ? localStorage.setItem("theme", "synthwave")
       : localStorage.setItem("theme", "light");
     setWebTheme(!webTheme);
-
-    // localStorage.getItem("theme");
-    /* setWebTheme(!webTheme);
-    webTheme
-      ? localStorage.setItem("theme", "light")
-      : localStorage.setItem("theme", "synthwave"); */
   };
 
   useEffect(() => {
@@ -164,7 +157,7 @@ const Navbar = () => {
             </summary>
             <ul
               tabIndex={0}
-              className="menu mt-6 menu-sm bg-[#111827] text-white dropdown-content  z-[1] p-2 shadow rounded-box w-52"
+              className="lg:hidden menu mt-6 menu-sm bg-[#111827] text-white dropdown-content  z-[1] p-2 shadow rounded-box w-52"
             >
               {links}
             </ul>
