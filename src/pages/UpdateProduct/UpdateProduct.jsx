@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { BsCloudArrowUp } from "react-icons/bs";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { ToastContainer, toast } from "react-toastify";
 
 const UpdateProduct = () => {
   const { scrollToTop } = useContext(AuthContext);
@@ -76,9 +77,7 @@ const UpdateProduct = () => {
         body: JSON.stringify(updatedData),
       }
     )
-      .then(result => {
-        console.log(result);
-        console.log(brand_name, route);
+      .then(() => {
         Swal.fire({
           title: "Done!",
           text: "Information Update Successfully!",
@@ -87,7 +86,7 @@ const UpdateProduct = () => {
         });
       })
       .catch(err => {
-        console.log(err);
+        toast("ERR:", err);
       });
   };
 
@@ -407,6 +406,7 @@ const UpdateProduct = () => {
           </div>
         </form>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

@@ -13,7 +13,6 @@ const AddProduct = () => {
   const handleChangeSelect = e => {
     setProductBrand(e.target.value);
   };
-  // console.log(productBrand);
   const handleChangeRating = e => {
     setSelectRating(e.target.value);
   };
