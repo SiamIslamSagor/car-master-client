@@ -14,7 +14,7 @@ const BrandCard = ({ brand }) => {
           <img
             className="lg:w-[400px] max-lg:h-[250px] lg:h-[270px] max-lg:w-full"
             src={brand_img}
-            alt="Shoes"
+            alt="Brand img"
           />
         </figure>
         <div className="card-body">

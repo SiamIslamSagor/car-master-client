@@ -206,7 +206,7 @@ const Navbar = () => {
                     <img
                       className="h-12 rounded-full "
                       src={user?.photoURL}
-                      alt="default user img"
+                      alt="user img"
                     />
                   </div>
                 </label>

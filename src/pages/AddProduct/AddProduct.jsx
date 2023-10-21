@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoIosAddCircle } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const AddProduct = () => {
+  const { scrollToTop } = useContext(AuthContext);
   const [productBrand, setProductBrand] = useState("toyota_products Toyota");
   const [selectRating, setSelectRating] = useState("5 star");
   const [selectType, setSelectType] = useState("car");
@@ -49,7 +51,7 @@ const AddProduct = () => {
       product_brand,
     };
 
-    //
+    // send data to server side backend by using post method
     fetch(
       `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${product_brand}`,
       {
@@ -71,6 +73,11 @@ const AddProduct = () => {
       })
       .catch(() => toast("Failed to add product. Please try again."));
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [scrollToTop]);
+
   return (
     <div className="container mx-auto min-h-screen mt-20">
       <h2 className="text-center font-fontSquare uppercase text-3xl md:text-5xl mb-16 underline font-bold">

@@ -1,10 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import Swal from "sweetalert2";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 const ProductDetails = () => {
-  const { user } = useContext(AuthContext);
+  const { user, scrollToTop } = useContext(AuthContext);
   const userEmail = user?.email;
   const loadedProduct = useLoaderData();
   const {
@@ -29,10 +29,8 @@ const ProductDetails = () => {
     const { _id, ...rest } = allInfo;
 
     console.log(_id);
-    // const { _id, ...rest } = product;
-    // console.log(_id);
 
-    //
+    // send data to server side backend
     fetch(
       "https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/cart_items",
       {
@@ -54,10 +52,14 @@ const ProductDetails = () => {
       })
       .catch(error => console.log(error));
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [scrollToTop]);
   return (
     <div className="container mx-auto px-2 my-5">
       <div className="relative">
-        <img className="rounded-2xl" src={img} alt="" />
+        <img className="rounded-2xl" src={img} alt="Product image" />
         <div className="absolute w-full max-sm:p-2 p-5 lg:p-10 rounded-b-2xl bottom-0 flex justify-between bg-black opacity-70 text-white items-center">
           <div>
             <h2 className="lg:text-2xl">{name}</h2>

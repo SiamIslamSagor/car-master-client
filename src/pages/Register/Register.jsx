@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createAccount, updateUserInfo, setLoading } = useContext(AuthContext);
-  //   console.log(updateUserInfo);
+  const { createAccount, updateUserInfo, setLoading, scrollToTop } =
+    useContext(AuthContext);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const Register = () => {
     const password = form.password.value;
     console.log(name, photo, email, password);
 
-    // validation
+    // password validation
     if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*\d]{6,}$/.test(password)) {
       return toast(
         "Please provide password they have at least 6 characters long, contain one uppercase letter, and have  one special character."
@@ -51,6 +51,10 @@ const Register = () => {
         toast("Registration Failed. Please try again.");
       });
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [scrollToTop]);
 
   return (
     <div className="hero min-h-screen bg-base-200">

@@ -1,9 +1,11 @@
 import { getObjInLS } from "../../localStorage";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { BsCloudArrowUp } from "react-icons/bs";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const UpdateProduct = () => {
+  const { scrollToTop } = useContext(AuthContext);
   const clickUpdateCardData = getObjInLS();
 
   const {
@@ -62,7 +64,7 @@ const UpdateProduct = () => {
       shortDescription,
       product_brand,
     };
-    //
+    // send data to server side backend
     fetch(
       `https://car-master-server-gcimpo0ow-md-siam-islam-sagors-projects.vercel.app/${route}/${_id}`,
       {
@@ -87,6 +89,10 @@ const UpdateProduct = () => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [scrollToTop]);
 
   return (
     <div className="container mx-auto min-h-screen mt-20">

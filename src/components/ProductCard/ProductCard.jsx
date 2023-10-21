@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         <img
           className="h-[350px] max-w-[580px] max-sm:h-[240px] max-lg:rounded-2xl lg:w-[700px]"
           src={img}
-          alt="Movie"
+          alt="Product image"
         />
       </figure>
       <div className="card-body">

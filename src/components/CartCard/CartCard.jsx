@@ -64,7 +64,7 @@ const CartCard = ({ singleProduct, setUpdatedCart, updatedCart }) => {
           <img
             className="h-[350px] max-w-[580px] max-sm:h-[240px] max-lg:rounded-2xl lg:w-[540px]"
             src={img}
-            alt="Movie"
+            alt="Product img"
           />
         </figure>
       </div>

@@ -5,7 +5,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import Slider from "../../components/Slider/Slider";
 
 const BrandProduct = () => {
-  const { brandsInfo } = useContext(AuthContext);
+  const { brandsInfo, scrollToTop } = useContext(AuthContext);
   const [products, setProducts] = useState(null);
   const clickedBrand = getBrandInLocalStorage();
   const brandInfo = brandsInfo?.find(
@@ -18,6 +18,10 @@ const BrandProduct = () => {
       .then(res => res.json())
       .then(data => setProducts(data));
   }, [clickedBrand]);
+
+  useEffect(() => {
+    scrollToTop();
+  }, [scrollToTop]);
   return (
     <div className="mt-10">
       {brandInfo && <Slider brandInfo={brandInfo}></Slider>}

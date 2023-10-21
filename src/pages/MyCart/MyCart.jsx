@@ -1,15 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartCard from "../../components/CartCard/CartCard";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const MyCart = () => {
-  const { user } = useContext(AuthContext);
+  const { user, scrollToTop } = useContext(AuthContext);
   const loadedCartData = useLoaderData();
   const [updatedCart, setUpdatedCart] = useState(loadedCartData);
   const userCartItem = updatedCart.filter(
     cartItem => cartItem.userEmail === user?.email
   );
+  useEffect(() => {
+    scrollToTop();
+  }, [scrollToTop]);
   return (
     <div>
       {userCartItem.length > 0 && (

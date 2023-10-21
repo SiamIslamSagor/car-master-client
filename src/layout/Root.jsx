@@ -27,7 +27,7 @@ const Root = () => {
       </div>
 
       <Footer></Footer>
-      <div className="text-center footer items-center p-4 bg-neutral text-neutral-content">
+      <div className="text-center footer items-center p- bg-neutral text-neutral-content">
         <aside className="mx-auto items-center grid-flow-col">
           <span className="font-fontSquare text-lg">Car master</span>
           <p>Copyright © 2023 - All right reserved</p>

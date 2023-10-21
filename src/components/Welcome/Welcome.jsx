@@ -34,7 +34,7 @@ const Welcome = () => {
           </div>
         </div>
         <div className=" flex items-center justify-center">
-          <img className="" src={WelcomeCar} alt="" />
+          <img className="" src={WelcomeCar} alt="Car image" />
         </div>
       </div>
     </div>
